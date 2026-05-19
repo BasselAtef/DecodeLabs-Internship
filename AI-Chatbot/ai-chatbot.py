@@ -3,19 +3,19 @@ import random
 def ai_chatbot():
     print("Hello, I am an AI Chatbot 👋 How can I help you today?")
     while True:
-        user_input = input("You: ")
-        if user_input.lower().startswith("exit") or user_input.lower().startswith("quit") or user_input.lower().startswith("bye"):
+        user_input = input("You: ").lower().strip()
+        if user_input in ("exit", "quit", "bye", "goodbye", "good bye"):
             goodbyes = ["Goodbye! 👋", "See you later!", "Bye! Have a great day! 😎"]
             print(f"AI: {random.choice(goodbyes)}")
             break
         
 
-        elif user_input.lower().startswith("hello") or user_input.lower().startswith("hi") or user_input.lower().startswith("hey"):
+        elif any(word in user_input for word in ("hello", "hi", "hey", "greetings")):
             greetings = ["Hello! 👋", "Hi there! 😊", "Hey! How are you doing today? 😎"]
             print(f"AI: {random.choice(greetings)}")
 
         
-        elif user_input.lower().startswith("thanks") or user_input.lower().startswith("thank you") or user_input.lower().startswith("ty"):
+        elif any(word in user_input for word in ("thanks", "thank you", "ty")):
             thanks = ["You're welcome! 😊", "No problem! 😎", "My pleasure! 😄"]
             print(f"AI: {random.choice(thanks)}")    
 
